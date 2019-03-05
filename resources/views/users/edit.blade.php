@@ -39,6 +39,10 @@
                         </div>
                             <button type="submit" class="btn btn-primary">Update</button>
                             <a href="{{ route('users.index')}}" class="btn btn-danger" role="button">Odustani</a>
+                            <p class="lead">
+                         <h5>Updated:</h5>
+                        {{ $user->updated_at->diffForHumans() }}
+                        </p>
                     </form>
                 </div>
             </div>
