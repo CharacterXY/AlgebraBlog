@@ -69,7 +69,7 @@ class UsersController extends Controller
     {
         $user = User::find($id);
 
-        return view('users.edit', compact('users'));
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -81,19 +81,13 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->Validation([
-            'username' => 'required',
-            'email'   => 'required',
-            'password' => 'required',
-            'confirm_password' => 'required'
-            
-        ]);
+        
         
         $user = User::find($id);
-        $user->username = $request->get('username');
+        $user->name = $request->get('name');
         $user->email = $request->get('email');
         $user->password = $request->get('password');
-        $user->confirm_password = $request->get('confirm_password');
+        
         $user->save();
 
 

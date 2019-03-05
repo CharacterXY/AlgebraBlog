@@ -22,24 +22,20 @@
                 </div>
 
                 <div class="panel-body">
-                    <form action="{{ route('users.update') }}" method="POST">
-                        {{ csrf_field() }}
-                        @method ('PUT')
+                <form method="post" action="{{ route('users.update', $user->id) }}">
+                              {{ method_field('PATCH') }}
+                              {{ csrf_field() }}
                         <div class="form-group">
                             <label for="naziv">Username</label>
-                            <input type="text" class="form-control" id="username" name="username">
+                            <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email">
+                            <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" name="password">
-                        </div>
-                        <div class="form-group">
-                            <label for="confirm_password">Confirm password</label>
-                            <input type="password" class="form-control" id="confirm_password" name="confirm_password">
                         </div>
                             <button type="submit" class="btn btn-primary">Update</button>
                             <a href="{{ route('users.index')}}" class="btn btn-danger" role="button">Odustani</a>

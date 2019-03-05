@@ -41,7 +41,7 @@
                    <td>
                        <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                        <p class="lead">
-                         <h5>Posted:</h5>
+                         <h5>Created:</h5>
                         {{ $user->created_at->diffForHumans() }}
                         </p>
                        {{ method_field('DELETE') }}
