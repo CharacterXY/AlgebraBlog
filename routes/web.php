@@ -42,8 +42,10 @@ Route::get('/posts/categorys/{category}', 'CategoryController@index')->name('cat
 
 
 Route::resource('users', 'UsersController')->middleware('verified');
+
 // Dodavanje rute za profil
-Route::get('profile', 'UserController@profile');
+Route::get('avatar', 'UserController@avatar');
+Route::post('profile', 'UserController@update_avatar');
 
 Auth::routes(['verify' => true]);
 
