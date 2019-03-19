@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
-</head>
-<body>
+@extends('layouts.master')
 
-     <li> Username :{{ $user ->name }} </li>
-     <br>
-     <section> User email :{{ $user -> email }} </section>
-  
-</body>
-</html>
+@section('content')
+  <div class="col-sm-8 blog-main"> 
+      <a href=" {{ route('users.index') }}" class="btn btn-danger" role="button">Back</a>
+    <h2>User name: {{ $user->name }}</h2>
+    <br>
+    <section>User email: {{ $user->email }}</section>
+    <h3> <i>Zadnja izmjena</i> : {{ $user->updated_at }}</h3>
+</div>
 
+@endsection
+
+
+      
