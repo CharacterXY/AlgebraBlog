@@ -13,15 +13,24 @@
         <div class="panel-heading">
             <a href="{{ route('posts.create') }}" class="btn btn-primary" style="margin-bottom: 20px" role="button">Dodaj novi post</a>                
         </div>
+
+
     
         @foreach ($posts as $key => $post)
             <div class="blog-post">
                 <a href="{{ route('posts.show', $post->id) }}">
                     <h2 class="blog-post-title">{{ $post->title }}</h2>
                 </a>
-                <p class="blog-post-meta"> {{ $post->created_at->toFormattedDateString() }} by <a href="#">{{ $post->name }}</a></p>
-
-                <section>{{ $post->body }}</section>
+                <p class="blog-post-meta"> {{ $post->created_at->toFormattedDateString() }} by <a href="#">{{ $post->user->name }}</a></p>
+                <p style=""><small><strong>Category: </strong></small>
+                @if(count($post->Categorys))
+                @foreach ($post->categorys as $category)
+                        <a class="navBtn" href="{{ route('categorys', $category) }}"></li><i>{{ $category->name }}</i></li></a>
+                        @endforeach             
+                @endif
+</p>
+<hr />
+                <section>{{ $post->body }}</section> 
             </div>
         @endforeach      
     
